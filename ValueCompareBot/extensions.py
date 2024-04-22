@@ -30,8 +30,8 @@ class ValueConverter():
         except ValueError:
             raise ConversionExeption(f'Не удалось обработать количество "{amount}".')
 
-        # r = requests.get(f'https://min-api.cryptocompare.com/data/price?fsym={quote_ticker}&tsyms={base_ticker}')
         r = requests.get(f'https://v6.exchangerate-api.com/v6/2ceb7ceacfbb9494d7caed69/pair/{quote_ticker}/{base_ticker}')
         total_base = json.loads(r.content)[keys[base]]
 
         return total_base
+    
